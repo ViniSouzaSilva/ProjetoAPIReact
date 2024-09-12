@@ -28,16 +28,28 @@ namespace Projeto.Controllers
 
             using (SqlConnection mycon = new SqlConnection(sqlDataSource))
             {
-                mycon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, mycon))
+                try
                 {
-                    myReader = myCommand.ExecuteReader();
-                    dataTable.Load(myReader);
-                    myReader.Close();
-                    mycon.Close();
+                    mycon.Open();
+                    using (SqlCommand myCommand = new SqlCommand(query, mycon))
+                    {
+                        myReader = myCommand.ExecuteReader();
+                        dataTable.Load(myReader);
+                        myReader.Close();
 
+
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw new Exception();
+                }
+                finally 
+                {
 
+                   
+                    mycon.Close();
+                }
             }
             return new JsonResult(dataTable);
         }
@@ -45,7 +57,7 @@ namespace Projeto.Controllers
 
         [HttpPost]
         [Route("AddNotes")]
-        public JsonResult AddNotes([FromForm] string newNotes)
+        public JsonResult AddNotes(string newNotes)
         {
             string query = "Insert Into notes values(@newnotes)";
             DataTable dataTable = new DataTable();
@@ -85,6 +97,36 @@ namespace Projeto.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, mycon))
                 {
                     myCommand.Parameters.AddWithValue("@Id", Id);
+                    myReader = myCommand.ExecuteReader();
+                    dataTable.Load(myReader);
+                    myReader.Close();
+                    mycon.Close();
+
+                }
+
+            }
+            return new JsonResult("Del com sucesso");
+        }
+
+
+        [HttpPut]
+        [Route("UpdateNotes")]
+        public JsonResult UpdateNotes(int @Id,string @description)
+        {
+            
+            
+            string query = "Update Notes set description = @description where Id = @Id";
+            DataTable dataTable = new DataTable();
+            SqlDataReader myReader;
+            string sqlDataSource = _configuration.GetConnectionString("todoAppDBCon");
+
+            using (SqlConnection mycon = new SqlConnection(sqlDataSource))
+            {
+                mycon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, mycon))
+                {
+                    myCommand.Parameters.AddWithValue("@Id", Id);
+                    myCommand.Parameters.AddWithValue("@description", description);
                     myReader = myCommand.ExecuteReader();
                     dataTable.Load(myReader);
                     myReader.Close();
