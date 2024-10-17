@@ -5,6 +5,7 @@ import {
  CardTitle,
  CardSubtitle,CardText,Button,img
   } from 'reactstrap';
+import 'rsuite/dist/rsuite.min.css';
 class Article extends React.Component{
 
     render(){
@@ -30,7 +31,7 @@ class Article extends React.Component{
               height: 200,
               width: 200,
             }}
-            src="https://media.licdn.com/dms/image/D4D03AQGerfymzExhVg/profile-displayphoto-shrink_800_800/0/1673658974272?e=1723075200&v=beta&t=0h3AA-94C8Pa37rGnb8YOc2B-hhTNBaS6h0IYK3Smg8"
+            src="https://media.licdn.com/dms/image/v2/D4D03AQGerfymzExhVg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1673658974272?e=1734566400&v=beta&t=KAcGAqVDL_qfXynA9doVsakKifq130gj2Cr19ZlXqLc"
           />
           <CardBody>
             <CardTitle tag="h5">

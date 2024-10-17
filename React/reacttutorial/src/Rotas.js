@@ -11,7 +11,7 @@ import Main from "./Pages/Main/Main";
 import SobreEmpresa from "./Pages/SobreEmpresa/SobreEmpresa";
 import Contato from "./Pages/Contato/Contato";
 import CRUD from "./Pages/CRUD/CRUD";
-
+import 'rsuite/dist/rsuite.min.css';
 
 
 function Rotas(){

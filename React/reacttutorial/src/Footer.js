@@ -11,6 +11,7 @@ import {
   Progress
 } from "reactstrap";
 import classnames from "classnames";
+import 'rsuite/dist/rsuite.min.css';
 
 class Footer extends React.Component{
   state = {

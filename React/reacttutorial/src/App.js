@@ -4,6 +4,7 @@ import Article from './Article';
 import Footer from './Footer';
 import { Button } from 'reactstrap';
 import{default as Rotas} from './Rotas';
+import 'rsuite/dist/rsuite.min.css';
 
 /*function App() {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 
+import 'rsuite/dist/rsuite.min.css';
 
 
 function SobreEmpresa (){
@@ -16,3 +17,4 @@ function SobreEmpresa (){
 };
 
 export default SobreEmpresa;
+

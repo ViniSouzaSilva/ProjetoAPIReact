@@ -15,6 +15,7 @@ import {
   NavbarText,
   Dropdown,
 } from 'reactstrap';
+import 'rsuite/dist/rsuite.min.css';
 
 /*class Headers extends React.Component{
     render(){

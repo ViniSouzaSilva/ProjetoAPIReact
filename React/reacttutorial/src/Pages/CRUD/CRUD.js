@@ -1,5 +1,13 @@
 //import React from "react";
 import React, { useState, useEffect } from 'react';     
+import Headers from "../../Headers";
+import 'rsuite/dist/rsuite.min.css';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,CardText,Button,img,li,List,ListGroup
+   } from 'reactstrap';
 
 function CRUD (){
 
@@ -126,7 +134,8 @@ const handleSave = async (Id,description) => {
     console.log(data);
         return(
           <div className="App">
-      <h2>Bucket List</h2>
+       <Headers />
+      
       <div>
       <h1>Minhas Notas</h1>
       <ul>
@@ -145,11 +154,11 @@ const handleSave = async (Id,description) => {
 
             {editNote === note.Id ? (
               // Botão para salvar a nota editada
-              <button onClick={() => handleSave(note.Id,note.description)}>Salvar</button>
+              <Button onClick={() => handleSave(note.Id,note.description)}>Salvar</Button>
             ) : (
               <>
-                <button onClick={() => handleEdit(note)}>Editar</button>
-                <button onClick={() => handleDelete(note.Id)}>Deletar</button>
+                <Button onClick={() => handleEdit(note)}>Editar</Button>
+                <Button onClick={() => handleDelete(note.Id)}>Deletar</Button>
               </>
             )}
           </li>
