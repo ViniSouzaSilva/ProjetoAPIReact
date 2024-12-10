@@ -10,6 +10,8 @@ import { Gear, AddOutline} from '@rsuite/icons';
 import Menu from '@rsuite/icons/Menu';
 import AddOutlineIcon from '@rsuite/icons/AddOutline';
 import PlusIcon from '@rsuite/icons/Plus';
+import GithubAltIcon from '@rsuite/icons/legacy/GithubAlt';
+import Linkedin from '@rsuite/icons/legacy/Linkedin';
 
 const panelStyles = {
   padding: '15px 20px',
@@ -70,7 +72,7 @@ function Leftbar(args) {
       <Sidenav.Body>
         <Nav>
           <Nav.Item eventKey="1" active icon={<DashboardIcon />}>
-            Dashboard
+            Início
           </Nav.Item>
           <Nav.Item eventKey="2" icon={<GroupIcon />}href="/CRUD">
           CRUD EXEMPLO
@@ -80,14 +82,13 @@ function Leftbar(args) {
             <Nav.Item panel style={panelStyles}>
               Redes Sociais
             </Nav.Item>
-            <Nav.Item eventKey="3-1" href="https://www.linkedin.com/in/vinisouzasilva/">LinkedIn</Nav.Item>
-            <Nav.Item eventKey="3-2" href="https://github.com/ViniSouzaSilva">
-            GitHub</Nav.Item>
+            <Nav.Item icon={<Linkedin />}  eventKey="3-1" href="https://www.linkedin.com/in/vinisouzasilva/"> <b>  LinkedIn  </b>    </Nav.Item>
+            <Nav.Item icon={<GithubAltIcon />} eventKey="3-2" href="https://github.com/ViniSouzaSilva"><b>  GitHub</b></Nav.Item>
             <Nav.Item divider />
-            <Nav.Item panel style={panelStyles}>
+            <Nav.Item panel style={panelStyles} >
               Meus Projetos
             </Nav.Item>
-            <Nav.Item eventKey="4-1" href="https://github.com/ViniSouzaSilva/ProjetoAPIReact">Esse Projeto!!</Nav.Item>
+            <Nav.Item eventKey="4-1" href="https://github.com/ViniSouzaSilva/ProjetoAPIReact">Este Projeto!!</Nav.Item>
             <Nav.Item eventKey="4-2" href="https://github.com/ViniSouzaSilva/FerramentaWhatsApp">FerramentaWhatsApp</Nav.Item>
         {/*
             <Nav.Menu eventKey="4-5" title="Custom Action">

@@ -11,6 +11,7 @@ import Main from "./Pages/Main/Main";
 import SobreEmpresa from "./Pages/SobreEmpresa/SobreEmpresa";
 import Contato from "./Pages/Contato/Contato";
 import CRUD from "./Pages/CRUD/CRUD";
+import DRAG from "./Pages/DRAG/DragnDrop";
 import 'rsuite/dist/rsuite.min.css';
 
 
@@ -24,6 +25,7 @@ return(
     <Route path="/Sobre-Empresa" Component={SobreEmpresa}/>
     <Route path="/Contato" Component={Contato}/>
     <Route path="/CRUD" Component={CRUD}/>
+    <Route path="/DRAG" Component={DRAG}/>
     </Routes> 
     </BrowserRouter>
 

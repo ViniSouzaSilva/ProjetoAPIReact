@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';     
 import Headers from "../../Headers";
 import 'rsuite/dist/rsuite.min.css';
+import { Popover,Grid, Row, Col,DOMHelper } from 'rsuite';
 import {
   Card,
   CardBody,
@@ -11,6 +12,7 @@ import {
 
 function CRUD (){
 
+      const { DOMMouseMoveTracker } = DOMHelper;
     const [data, setData] = useState('');
     const [loading, setLoading] = useState(true); // Estado para rastrear o carregamento
     const [error, setError] = useState(null); // Estado para rastrear erros
@@ -132,13 +134,41 @@ const handleSave = async (Id,description) => {
 }
   
     console.log(data);
+
+
+
+    const [left, setLeft] = React.useState(0);
+    const [top, setTop] = React.useState(0);
+  
+    const mouseMoveTracker = React.useRef();
+
+    const onMove = React.useCallback((deltaX, deltaY) => {
+      setLeft(x => x + deltaX);
+      setTop(y => y + deltaY);
+    }, []);
+  
+    const onMoveEnd = React.useCallback(() => {
+      if (mouseMoveTracker.current) {
+        mouseMoveTracker.current.releaseMouseMoves();
+      }
+    }, []);
+  
+    const getMouseMoveTracker = React.useCallback(() => {
+      return mouseMoveTracker.current || new DOMMouseMoveTracker(onMove, onMoveEnd, document.body);
+    }, []);
+  
+    const handleMouseDown = React.useCallback(event => {
+      mouseMoveTracker.current = getMouseMoveTracker();
+      mouseMoveTracker.current.captureMouseMoves(event);
+    }, []);
         return(
-          <div className="App">
+          <div className="App" >
+         
        <Headers />
       
-      <div>
-      <h1>Minhas Notas</h1>
-      <ul>
+      
+      
+      
         {notes.map(note => (
           <li key={note.Id}>
             {editNote === note.Id ? (
@@ -149,7 +179,18 @@ const handleSave = async (Id,description) => {
                 onChange={(e) => setNewText(e.target.value)}
               />
             ) : (
-              <span>{note.description}</span>
+             
+                
+                      <Col xs={4}>
+                      <div style={{ height: 100, position: 'relative' }}>
+                                <Popover style={{ position: 'absolute', left, top }} title={note.description} visible  onMouseDown={handleMouseDown}>
+                                <span>{note.description}</span>
+                                
+                                </Popover>
+                                </div>
+                      </Col>
+                        
+                        
             )}
 
             {editNote === note.Id ? (
@@ -163,9 +204,8 @@ const handleSave = async (Id,description) => {
             )}
           </li>
         ))}
-      </ul>
-    </div>
-
+    
+   
       <div>
       <input 
         type="text" 

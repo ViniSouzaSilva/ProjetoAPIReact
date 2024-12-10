@@ -5,52 +5,18 @@ import {
  CardTitle,
  CardSubtitle,CardText,Button,img
   } from 'reactstrap';
+import { Carousel, Heading, HeadingGroup, Text } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
 class Article extends React.Component{
 
     render(){
         return(
-          <Card
-          style={{
-            width: '100%',
-            alignContent: 'Center',
-            alignItems:'Left',
-            color: "white",
-            backgroundColor: "#1c1e21",
-      
-          }}
-        >
-          <img
-            alt="Sample"
-            width={200}
-            style={{
-              borderBottomRightRadius: 40,
-              borderTopRightRadius:40,
-              borderTopLeftRadius:40,
-              borderBottomLeftRadius:40,
-              height: 200,
-              width: 200,
-            }}
-            src="https://media.licdn.com/dms/image/v2/D4D03AQGerfymzExhVg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1673658974272?e=1734566400&v=beta&t=KAcGAqVDL_qfXynA9doVsakKifq130gj2Cr19ZlXqLc"
-          />
-          <CardBody>
-            <CardTitle tag="h5">
-             Olá, Sejam bem vindos!!
-            </CardTitle>
-            <CardSubtitle
-              color="white"
-              tag="h6"
-            >
-              Meu nome é Vinícius Souza Silva
-            </CardSubtitle>
-            <CardText>
-              Sou um desenvolvedor com mais de 4 anos de experiência na área, clique abaixo para saber mais. 
-            </CardText>
-            <Button href="/Sobre-Empresa">
-              Saiba mais
-            </Button>
-          </CardBody>
-        </Card>
+        <div>
+           <Carousel className="custom-slider">
+           <img src="https://i.ibb.co/f91CX4L/Vin-cius-Silva.png"/>
+           </Carousel>
+
+        </div>
         );
     }
 

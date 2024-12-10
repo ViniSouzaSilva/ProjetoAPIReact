@@ -1,6 +1,5 @@
 import React from "react";
 import Leftbar from "../../Leftbar";
-import Headers from "../../Headers";
 import Article from "../../Article";
 import Footer from "../../Footer";
 import 'rsuite/dist/rsuite.min.css';
@@ -15,7 +14,7 @@ function Main (){
           <Container>
       <Sidebar><Leftbar></Leftbar></Sidebar>
       <Container>
-        <Headers></Headers>
+        
         <Article></Article>
         <Footer></Footer>
       </Container>
