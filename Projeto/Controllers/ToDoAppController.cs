@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Projeto.MODEL.IA;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Http.Headers;
+
 
 namespace Projeto.Controllers
 {
@@ -78,6 +82,36 @@ namespace Projeto.Controllers
 
             }
             return new JsonResult("Add com sucesso");
+        }
+
+
+        [HttpPost]
+        [Route("IA")]
+        public JsonResult IA(string newNotes)
+        {
+            using (var Cliente = new HttpClient())
+            {
+                var Requisicao = new HttpRequestMessage(HttpMethod.Post, "https://api.gemini.com/v1/chat");
+                Requisicao.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "AIzaSyCRmgAvyfuSSA334BjUtpcl_jcj7PCDElQ");
+                var content = new StringContent(JsonConvert.SerializeObject(new { newNotes }));
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                Requisicao.Content = content;
+
+                var response = Cliente.SendAsync(Requisicao);
+                var responseString = response.ToString();
+                var responseObject = JsonConvert.DeserializeObject<GeminiResponse>(responseString);
+
+               
+                return new JsonResult(responseObject.Response);
+            }
+            
+
+
+
+           
+
+
+
         }
 
 

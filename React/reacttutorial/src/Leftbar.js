@@ -77,6 +77,7 @@ function Leftbar(args) {
           <Nav.Item eventKey="2" icon={<GroupIcon />}href="/CRUD">
           CRUD EXEMPLO
           </Nav.Item>
+          
           <Nav.Menu eventKey="3" title="Sobre Mim" icon={<MagicIcon />}>
             <Nav.Item divider />
             <Nav.Item panel style={panelStyles}>
@@ -90,12 +91,15 @@ function Leftbar(args) {
             </Nav.Item>
             <Nav.Item eventKey="4-1" href="https://github.com/ViniSouzaSilva/ProjetoAPIReact">Este Projeto!!</Nav.Item>
             <Nav.Item eventKey="4-2" href="https://github.com/ViniSouzaSilva/FerramentaWhatsApp">FerramentaWhatsApp</Nav.Item>
-        {/*
+             {/*
             <Nav.Menu eventKey="4-5" title="Custom Action">
               <Nav.Item eventKey="4-5-1">Action Name</Nav.Item>
               <Nav.Item eventKey="4-5-2">Action Params</Nav.Item>
             </Nav.Menu>*/}
           </Nav.Menu>
+          <Nav.Item eventKey="5" icon={<GroupIcon />}href="/IA">
+          IA
+          </Nav.Item>
         </Nav>
       </Sidenav.Body>
     </Sidenav>
